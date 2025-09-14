@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +22,7 @@
         <div class="form-group">
           <label for="category">Category</label>
           <select id="category" required>
+            <option value="" disabled selected>Select a category</option>
             <option value="Groceries">Groceries</option>
             <option value="Medicine">Medicine</option>
             <option value="Clothes">Clothes</option>
@@ -43,6 +43,10 @@
     <div class="category-budgets">
       <h3>Category Budgets</h3>
       <div id="category-budget-list"></div>
+    </div>
+
+    <div class="loader-container" id="loader" style="display: none;">
+      <div class="loader"></div>
     </div>
 
     <div class="dashboard">

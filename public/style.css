@@ -1,8 +1,9 @@
-
 body {
-  font-family: sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  background-color: #f4f4f4;
+  background-color: #f0f2f5;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
@@ -10,17 +11,22 @@ body {
   margin: 20px auto;
   padding: 20px;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
 }
 
 h1 {
   text-align: center;
-  color: #333;
+  color: #1c1c1c;
+  font-weight: 600;
 }
 
 .form-container {
   margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
 }
 
 .form-group {
@@ -29,27 +35,43 @@ h1 {
 
 label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
 }
 
 input[type="month"],
 input[type="number"],
 select {
   width: 100%;
-  padding: 8px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+input[type="month"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #4CAF50;
+  outline: none;
 }
 
 button {
   background-color: #4CAF50;
   color: white;
-  padding: 10px 15px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
 }
 
 .category-budgets {
@@ -71,10 +93,6 @@ button {
   width: 100px;
 }
 
-button:hover {
-  background-color: #45a049;
-}
-
 .dashboard {
   margin-top: 30px;
 }
@@ -84,17 +102,20 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .total-spend {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
 }
 
 .budget-alert {
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
 }
 
 .budget-alert.exceeded {
@@ -103,16 +124,22 @@ button:hover {
 }
 
 .predictive-alert {
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: 600;
   background-color: #ffeb3b;
   color: #333;
   margin-top: 10px;
+  width: 100%;
+  text-align: center;
 }
 
 .filters {
   margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .chart-container {
@@ -126,13 +153,14 @@ button:hover {
 
 .expense-table th,
 .expense-table td {
-  padding: 12px 15px;
+  padding: 14px 18px;
   border: 1px solid #ddd;
   text-align: left;
 }
 
 .expense-table th {
   background-color: #f2f2f2;
+  font-weight: 600;
 }
 
 .spending-tips {
@@ -146,9 +174,10 @@ button:hover {
 
 .spending-tips li {
   margin-bottom: 10px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border-left: 4px solid #4CAF50;
+  padding: 15px;
+  background-color: #e7f3ff;
+  border-left: 5px solid #2196F3;
+  border-radius: 4px;
 }
 
 .header {
@@ -160,21 +189,17 @@ button:hover {
 #dark-mode-toggle {
   background-color: #333;
   color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
 }
 
+/* Dark Mode */
 body.dark-mode {
   background-color: #121212;
-  color: #fff;
+  color: #e0e0e0;
 }
 
 body.dark-mode .container {
   background-color: #1e1e1e;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode h1,
@@ -183,15 +208,19 @@ body.dark-mode h3 {
   color: #fff;
 }
 
-body.dark-mode .form-group label {
-  color: #fff;
+body.dark-mode .form-container {
+  background-color: #2a2a2a;
+}
+
+body.dark-mode label {
+  color: #e0e0e0;
 }
 
 body.dark-mode input[type="month"],
 body.dark-mode input[type="number"],
 body.dark-mode select {
   background-color: #333;
-  color: #fff;
+  color: #e0e0e0;
   border-color: #555;
 }
 
@@ -200,12 +229,34 @@ body.dark-mode .expense-table th {
 }
 
 body.dark-mode .expense-table td {
-  border-color: #555;
+  border-color: #444;
 }
 
 body.dark-mode .spending-tips li {
-  background-color: #333;
-  border-left-color: #4CAF50;
+  background-color: #2a2a2a;
+  border-left-color: #2196F3;
+}
+
+/* Loader */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #4CAF50;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @media (max-width: 768px) {
@@ -215,7 +266,7 @@ body.dark-mode .spending-tips li {
 
   .dashboard-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
   }
 
   .total-spend {
@@ -227,7 +278,7 @@ body.dark-mode .spending-tips li {
   }
 
   #budget-input {
-    width: 150px;
+    width: 100%;
   }
 
   .progress-container {
@@ -248,8 +299,8 @@ body.dark-mode .spending-tips li {
   }
 
   .filters {
-    display: flex;
     flex-direction: column;
+    align-items: stretch;
   }
 
   .filters label {
@@ -262,4 +313,3 @@ body.dark-mode .spending-tips li {
     margin-bottom: 10px;
   }
 }
-

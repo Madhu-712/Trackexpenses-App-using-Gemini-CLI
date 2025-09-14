@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   const expenseForm = document.getElementById('expense-form');
   const expenseList = document.getElementById('expense-list');
@@ -14,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const expenseChartCanvas = document.getElementById('expense-chart').getContext('2d');
   const darkModeToggle = document.getElementById('dark-mode-toggle');
   const exportCsvButton = document.getElementById('export-csv');
+  const loader = document.getElementById('loader');
 
   let expenses = [];
   let expenseChart;
@@ -30,6 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
     'Housing Maintenance',
     'Others'
   ];
+
+  // Set month input to current month
+  const today = new Date();
+  const month = today.getMonth() + 1;
+  const year = today.getFullYear();
+  const monthString = `${year}-${month.toString().padStart(2, '0')}`;
+  document.getElementById('month').value = monthString;
+  filterMonth.value = monthString;
 
   // Render category budget inputs
   const renderCategoryBudgets = () => {
@@ -60,12 +68,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fetch expenses from the server
   const fetchExpenses = async () => {
+    showLoader();
     try {
       const response = await fetch('/api/expenses');
+      if (!response.ok) {
+        throw new Error('Failed to fetch expenses.');
+      }
       expenses = await response.json();
       renderExpenses();
     } catch (error) {
-      console.error('Error fetching expenses:', error);
+      showError(error.message);
+    } finally {
+      hideLoader();
     }
   };
 
@@ -190,11 +204,14 @@ document.addEventListener('DOMContentLoaded', () => {
       categorySpends[expense.category] += expense.amount;
     });
 
-    for (const category in categorySpends) {
-      const percentage = (categorySpends[category] / totalSpend) * 100;
+    const sortedCategories = Object.keys(categorySpends).sort((a, b) => categorySpends[b] - categorySpends[a]);
+
+    if (sortedCategories.length > 0) {
+      const highestSpendingCategory = sortedCategories[0];
+      const percentage = (categorySpends[highestSpendingCategory] / totalSpend) * 100;
       if (percentage > 25) {
         const tip = document.createElement('li');
-        tip.textContent = `You are spending a lot on ${category}. Consider reducing these expenses.`;
+        tip.textContent = `You are spending a lot on ${highestSpendingCategory} (${percentage.toFixed(2)}% of your total spend). Consider reducing these expenses.`;
         spendingTipsList.appendChild(tip);
       }
     }
@@ -217,6 +234,12 @@ document.addEventListener('DOMContentLoaded', () => {
       date: new Date().toISOString()
     };
 
+    if (!newExpense.category) {
+      showError('Please select a category.');
+      return;
+    }
+
+    showLoader();
     try {
       const response = await fetch('/api/expenses', {
         method: 'POST',
@@ -230,11 +253,14 @@ document.addEventListener('DOMContentLoaded', () => {
         expenses.push(await response.json());
         renderExpenses();
         expenseForm.reset();
+        document.getElementById('month').value = monthString; // Reset month to current
       } else {
-        console.error('Error adding expense:', await response.text());
+        throw new Error('Error adding expense.');
       }
     } catch (error) {
-      console.error('Error adding expense:', error);
+      showError(error.message);
+    } finally {
+      hideLoader();
     }
   });
 
@@ -304,6 +330,18 @@ document.addEventListener('DOMContentLoaded', () => {
       link.click();
       document.body.removeChild(link);
     }
+  }
+
+  const showLoader = () => {
+    loader.style.display = 'flex';
+  }
+
+  const hideLoader = () => {
+    loader.style.display = 'none';
+  }
+
+  const showError = (message) => {
+    alert(message);
   }
 
   // Initial fetch
