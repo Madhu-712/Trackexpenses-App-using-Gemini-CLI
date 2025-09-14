@@ -1,0 +1,62 @@
+[
+  {
+    "month": "2025-09",
+    "category": "Groceries",
+    "amount": 19000,
+    "date": "2025-09-07T17:25:50.712Z"
+  },
+  {
+    "month": "2025-09",
+    "category": "Medicine",
+    "amount": 800,
+    "date": "2025-09-07T17:26:11.200Z"
+  },
+  {
+    "month": "2025-08",
+    "category": "Housing Maintenance",
+    "amount": 7000,
+    "date": "2025-09-07T17:27:23.900Z"
+  },
+  {
+    "month": "2025-09",
+    "category": "Vehicle Expenses",
+    "amount": 4000,
+    "date": "2025-09-07T17:27:49.186Z"
+  },
+  {
+    "month": "2025-06",
+    "category": "Insurance",
+    "amount": 9000,
+    "date": "2025-09-14T17:09:05.642Z"
+  },
+  {
+    "month": "2025-06",
+    "category": "Vehicle Expenses",
+    "amount": 4500,
+    "date": "2025-09-14T17:09:23.785Z"
+  },
+  {
+    "month": "2025-05",
+    "category": "Clothes",
+    "amount": 3000,
+    "date": "2025-09-14T17:09:41.085Z"
+  },
+  {
+    "month": "2025-09",
+    "category": "Medicine",
+    "amount": 2000,
+    "date": "2025-09-14T17:24:33.859Z"
+  },
+  {
+    "month": "2025-09",
+    "category": "Housing Maintenance",
+    "amount": 6000,
+    "date": "2025-09-14T17:24:48.587Z"
+  },
+  {
+    "month": "2025-09",
+    "category": "Vehicle Expenses",
+    "amount": 12000,
+    "date": "2025-09-14T17:25:06.963Z"
+  }
+]
