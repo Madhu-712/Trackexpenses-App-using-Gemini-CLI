@@ -12,6 +12,19 @@ This is a simple expense tracker application that allows you to track your expen
 - Dark mode toggle.
 - Export expenses to CSV.
 
+## Tech Stack
+
+- **Frontend:**
+  - HTML5
+  - CSS3
+  - JavaScript (ES6+)
+  - Chart.js
+- **Backend:**
+  - Node.js
+  - Express.js
+- **Data Storage:**
+  - JSON
+
 ## Project Structure
 
 - `index.js`: The main server file.
