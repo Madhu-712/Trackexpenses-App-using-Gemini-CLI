@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Expense Tracker</h1>
+      <button id="dark-mode-toggle">Toggle Dark Mode</button>
+    </div>
+    <div class="form-container">
+      <h2>Add Expense</h2>
+      <form id="expense-form">
+        <div class="form-group">
+          <label for="month">Month</label>
+          <input type="month" id="month" required>
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" required>
+            <option value="Groceries">Groceries</option>
+            <option value="Medicine">Medicine</option>
+            <option value="Clothes">Clothes</option>
+            <option value="Insurance">Insurance</option>
+            <option value="Vehicle Expenses">Vehicle Expenses</option>
+            <option value="Housing Maintenance">Housing Maintenance</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount (₹)</label>
+          <input type="number" id="amount" required>
+        </div>
+        <button type="submit">Add Expense</button>
+      </form>
+    </div>
+
+    <div class="category-budgets">
+      <h3>Category Budgets</h3>
+      <div id="category-budget-list"></div>
+    </div>
+
+    <div class="dashboard">
+      <h2>Spend Analyzer</h2>
+      <div class="dashboard-header">
+        <div class="budget-container">
+          <label for="budget-input">Set Your Monthly Budget (₹):</label>
+          <input type="number" id="budget-input" value="80000">
+        </div>
+        <div class="total-spend">Total Monthly Spend: <span id="total-spend">₹0</span></div>
+        <div class="budget-alert" id="budget-alert"></div>
+        <div class="predictive-alert" id="predictive-alert"></div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar" id="budget-progress"></div>
+      </div>
+      <div class="filters">
+        <label for="filter-month">Filter by Month:</label>
+        <input type="month" id="filter-month">
+        <label for="sort-amount">Sort by Amount:</label>
+        <select id="sort-amount">
+          <option value="">-- Select --</option>
+          <option value="low-to-high">Low to High</option>
+          <option value="high-to-low">High to Low</option>
+        </select>
+        <button id="export-csv">Export to CSV</button>
+      </div>
+      <div class="chart-container">
+        <canvas id="expense-chart"></canvas>
+      </div>
+      <div class="expense-table">
+        <h3>Monthly Breakdown</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Amount (₹)</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="expense-list"></tbody>
+        </table>
+      </div>
+      <div class="spending-tips">
+        <h3>Spending Tips</h3>
+        <ul id="spending-tips-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.form-container {
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="month"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.category-budgets {
+  margin-bottom: 30px;
+}
+
+.category-budget-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.category-budget-item label {
+  font-weight: normal;
+}
+
+.category-budget-item input {
+  width: 100px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.dashboard {
+  margin-top: 30px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.total-spend {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.budget-alert {
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.budget-alert.exceeded {
+  background-color: #f44336;
+  color: white;
+}
+
+.predictive-alert {
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: #ffeb3b;
+  color: #333;
+  margin-top: 10px;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  margin-bottom: 30px;
+}
+
+.expense-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.expense-table th,
+.expense-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.expense-table th {
+  background-color: #f2f2f2;
+}
+
+.spending-tips {
+  margin-top: 30px;
+}
+
+.spending-tips ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.spending-tips li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-left: 4px solid #4CAF50;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#dark-mode-toggle {
+  background-color: #333;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #fff;
+}
+
+body.dark-mode .container {
+  background-color: #1e1e1e;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #fff;
+}
+
+body.dark-mode .form-group label {
+  color: #fff;
+}
+
+body.dark-mode input[type="month"],
+body.dark-mode input[type="number"],
+body.dark-mode select {
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
+}
+
+body.dark-mode .expense-table th {
+  background-color: #333;
+}
+
+body.dark-mode .expense-table td {
+  border-color: #555;
+}
+
+body.dark-mode .spending-tips li {
+  background-color: #333;
+  border-left-color: #4CAF50;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .total-spend {
+    margin-bottom: 10px;
+  }
+
+  .budget-container {
+    margin-bottom: 10px;
+  }
+
+  #budget-input {
+    width: 150px;
+  }
+
+  .progress-container {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  .progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filters label {
+    margin-bottom: 5px;
+  }
+
+  .filters input,
+  .filters select {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
