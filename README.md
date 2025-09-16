@@ -24,6 +24,33 @@ This is a simple expense tracker application that allows you to track your expen
   - Express.js
 - **Data Storage:**
   - JSON
+ 
+  ## MCP server configuration
+  
+  {
+  "theme": "Default",
+
+  "selectedAuthType": "oauth-personal",
+
+   "mcpServers": {
+
+     "github": {
+
+            "httpUrl": "https://api.githubcopilot.com/mcp/",
+           
+            "headers": {
+                
+                "Authorization": "GITHUB_PAT"
+            
+            },
+            
+            "timeout": 5000
+      
+       }
+  
+  }
+
+}
 
 ## Project Structure
 
