@@ -1,0 +1,30 @@
+{
+  "mcpServers": {
+    "apify": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.apify.com/?actors=fantastic-jobs/career-site-job-listing-api",
+        "--header",
+        "Authorization: Bearer [REDACTED]"
+      ]
+    },
+    "financial-data": {
+      "command": "python",
+      "args": [
+        "path/to/server.py"
+      ],
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    "github": {
+      "httpUrl": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "[REDACTED]"
+      },
+      "timeout": 5000
+    }
+  },
+  "selectedAuthType": "cloud-shell"
+}
